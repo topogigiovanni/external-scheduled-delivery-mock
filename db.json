@@ -1,0 +1,7 @@
+{
+	"delivery_methods": [{
+		"id": "1",
+		"name": "Entrega agendada 1",
+		"schedules": []
+	}]
+}

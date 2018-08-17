@@ -1,0 +1,23 @@
+{
+	"name": "external-scheduled-delivery-mock",
+	"version": "0.0.2",
+	"description": "Sample project with scheduled delivery end-point mocked",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js",
+		"dev": "nodemon app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "topogigiovanni",
+	"license": "MIT",
+	"dependencies": {
+		"body-parser": "^1.18.3",
+		"express": "^4.14.0",
+		"lowdb": "^1.0.0"
+	},
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-develop-server": "^0.5.2",
+		"gulp-livereload": "^3.8.1"
+	}
+}
