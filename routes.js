@@ -1,6 +1,12 @@
+const _ = require('lodash');
+
 function Routes(app, db) {
 
-	app.post('/delivery/:id', (req, res) => {
+	const OK_RESPONSE = {
+		ok: true
+	};
+
+	const get = (req, res) => {
 		const method = db.get('delivery_methods')
 			.find({
 				id: req.params.id
@@ -8,9 +14,43 @@ function Routes(app, db) {
 			.value();
 
 		res.send(method);
+	};
+
+	app.get('/delivery/:id', get);
+	app.post('/delivery/:id', get);
+
+	app.put('/delivery/:id', (req, res) => {
+		db.get('delivery_methods')
+			.find({
+				id: req.params.id
+			})
+			.assign({
+				schedules: (!_.isEmpty(req.body)) ? req.body : []
+			})
+			.write();
+
+		res.send(OK_RESPONSE);
+	});
+
+	app.delete('/delivery/:id', (req, res) => {
+		db.get('delivery_methods')
+			.remove({
+				id: req.params.id
+			})
+			.write();
+
+		res.send(OK_RESPONSE);
 	});
 
 	app.post('/delivery', (req, res) => {
+		db.get('delivery_methods')
+			.push((!_.isEmpty(req.body)) ? req.body : {})
+			.write();
+
+		res.send(OK_RESPONSE);
+	});
+
+	app.post('/delivery/mock', (req, res) => {
 
 		let t = req.query.t;
 		let error = req.query.error;
@@ -20,24 +60,24 @@ function Routes(app, db) {
 		!!pac ? parseInt(pac) : 10
 
 		let data = {
-			"delivery_methods": [{
-				"id": "10",
-				"eta_days": 5,
-				"name": "PAC",
-				"amount": pac
+			'delivery_methods': [{
+				'id': '10',
+				'eta_days': 5,
+				'name': 'PAC',
+				'amount': pac
 			}, {
-				"id": "10",
-				"eta_days": 2,
-				"name": "Sedex",
-				"amount": 25
+				'id': '10',
+				'eta_days': 2,
+				'name': 'Sedex',
+				'amount': 25
 			}]
 		};
 
 		if (error) {
 			data = {
-				"errors": [{
-					"key": "Chave",
-					"message": "Mensagem de erro"
+				'errors': [{
+					'key': 'Chave',
+					'message': 'Mensagem de erro'
 				}]
 			};
 		}
@@ -50,9 +90,7 @@ function Routes(app, db) {
 	});
 
 	app.get('/', (req, res) => {
-		res.json({
-			ok: true
-		});
+		res.json(OK_RESPONSE);
 	});
 
 }

@@ -1,7 +1,30 @@
 {
-	"delivery_methods": [{
-		"id": "1",
-		"name": "Entrega agendada 1",
-		"schedules": []
-	}]
+  "delivery_methods": [
+    {
+      "id": "1",
+      "name": "Entrega agendada 1",
+      "schedules": []
+    },
+    {
+      "id": "2",
+      "name": "Entrega custom 2",
+      "schedules": []
+    },
+    {
+      "id": "3",
+      "name": "Entrega custom 3",
+      "schedules": [
+        {
+          "ScheduleShiftID": "1",
+          "StartTime": "-----",
+          "EndTime": "-------"
+        },
+        {
+          "ScheduleShiftID": "2",
+          "StartTime": "-----",
+          "EndTime": "-------"
+        }
+      ]
+    }
+  ]
 }
