@@ -13,6 +13,10 @@ function Routes(app, db) {
 			})
 			.value();
 
+		db.get('request_log')
+			.push((!_.isEmpty(req.body)) ? req.body : {})
+			.write();
+
 		res.send(method);
 	};
 
@@ -48,6 +52,13 @@ function Routes(app, db) {
 			.write();
 
 		res.send(OK_RESPONSE);
+	});
+
+	app.get('/request-logs', (req, res) => {
+		const logs = db.get('request_log')
+			.value();
+
+		res.send(logs);
 	});
 
 	app.post('/delivery/mock', (req, res) => {
