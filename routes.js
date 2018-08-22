@@ -61,6 +61,13 @@ function Routes(app, db) {
 		res.send(logs);
 	});
 
+	app.delete('/request-logs', (req, res) => {
+		db.set('request_log', [])
+			.write();
+
+		res.send(OK_RESPONSE);
+	});
+
 	app.post('/delivery/mock', (req, res) => {
 
 		let t = req.query.t;
