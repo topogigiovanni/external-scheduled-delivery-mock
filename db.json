@@ -1,30 +1,103 @@
 {
-  "delivery_methods": [
-    {
-      "id": "1",
-      "name": "Entrega agendada 1",
-      "schedules": []
-    },
-    {
-      "id": "2",
-      "name": "Entrega custom 2",
-      "schedules": []
-    },
-    {
-      "id": "3",
-      "name": "Entrega custom 3",
-      "schedules": [
-        {
-          "ScheduleShiftID": "1",
-          "StartTime": "-----",
-          "EndTime": "-------"
-        },
-        {
-          "ScheduleShiftID": "2",
-          "StartTime": "-----",
-          "EndTime": "-------"
-        }
-      ]
-    }
-  ]
+	"delivery_methods":
+	[
+		{
+			"method_id": "2",
+			"name": "PAC agendado",
+			"min_handling_days": 2,
+			"max_handling_days": 4,
+			"shifts":
+			[
+				{
+					"shift_id": "111",
+					"display_name": "PAC MM",
+					"start_time": "01:00",
+					"end_time": "03:00",
+					"allow_monday": true,
+					"tax_monday": 0.52,
+					"allow_tuesday": false,
+					"tax_tuesday": 0,
+					"allow_wednesday": true,
+					"tax_wednesday": 0,
+					"allow_thursday": false,
+					"tax_thursday": 0,
+					"allow_friday": true,
+					"tax_friday": 0,
+					"allow_saturday": false,
+					"tax_saturday": 0,
+					"allow_sunday": false,
+					"tax_sunday": 0
+				},
+				{
+					"shift_id": "222",
+					"display_name": "PAC TT",
+					"start_time": "04:00",
+					"end_time": "07:00",
+					"allow_monday": true,
+					"tax_monday": 1.64,
+					"allow_tuesday": true,
+					"tax_tuesday": 0,
+					"allow_wednesday": false,
+					"tax_wednesday": 0,
+					"allow_thursday": true,
+					"tax_thursday": 0,
+					"allow_friday": false,
+					"tax_friday": 0,
+					"allow_saturday": true,
+					"tax_saturday": 0,
+					"allow_sunday": false,
+					"tax_sunday": 0
+				}
+			]
+		},
+		{
+			"method_id": "1",
+			"name": "Sedex agendado",
+			"min_handling_days": 3,
+			"max_handling_days": 4,
+			"shifts":
+			[
+				{
+					"shift_id": "333",
+					"display_name": "SD MMM",
+					"start_time": "02:30",
+					"end_time": "03:30",
+					"allow_monday": false,
+					"tax_monday": 2.36,
+					"allow_tuesday": false,
+					"tax_tuesday": 0,
+					"allow_wednesday": true,
+					"tax_wednesday": 0,
+					"allow_thursday": true,
+					"tax_thursday": 0,
+					"allow_friday": true,
+					"tax_friday": 0,
+					"allow_saturday": false,
+					"tax_saturday": 0,
+					"allow_sunday": false,
+					"tax_sunday": 0
+				},
+				{
+					"shift_id": "444",
+					"display_name": "SD TTT",
+					"start_time": "04:30",
+					"end_time": "07:30",
+					"allow_monday": true,
+					"tax_monday": 4.57,
+					"allow_tuesday": true,
+					"tax_tuesday": 0,
+					"allow_wednesday": false,
+					"tax_wednesday": 0,
+					"allow_thursday": true,
+					"tax_thursday": 0,
+					"allow_friday": true,
+					"tax_friday": 0,
+					"allow_saturday": true,
+					"tax_saturday": 0,
+					"allow_sunday": false,
+					"tax_sunday": 0
+				}
+			]
+		}
+	]
 }

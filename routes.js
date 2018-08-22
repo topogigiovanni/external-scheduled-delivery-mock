@@ -9,7 +9,7 @@ function Routes(app, db) {
 	const get = (req, res) => {
 		const method = db.get('delivery_methods')
 			.find({
-				id: req.params.id
+				'method_id': req.params.id
 			})
 			.value();
 
@@ -22,10 +22,10 @@ function Routes(app, db) {
 	app.put('/delivery/:id', (req, res) => {
 		db.get('delivery_methods')
 			.find({
-				id: req.params.id
+				'method_id': req.params.id
 			})
 			.assign({
-				schedules: (!_.isEmpty(req.body)) ? req.body : []
+				shifts: (!_.isEmpty(req.body)) ? req.body : []
 			})
 			.write();
 
@@ -35,7 +35,7 @@ function Routes(app, db) {
 	app.delete('/delivery/:id', (req, res) => {
 		db.get('delivery_methods')
 			.remove({
-				id: req.params.id
+				'method_id': req.params.id
 			})
 			.write();
 

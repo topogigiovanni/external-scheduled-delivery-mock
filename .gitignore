@@ -27,3 +27,5 @@ npm-debug.log.*
 local-config.js
 
 process.json
+
+db.json
