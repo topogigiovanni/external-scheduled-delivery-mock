@@ -11,3 +11,8 @@ npm install
 npm start
 # The project is available at http://localhost:5000
 ```
+Or you can just run it with docker by executing the following command in terminal inside the project folder (needs docker compose)
+
+```bash
+docker-compose up
+```
